@@ -1,3 +1,28 @@
+function soma(num1, num2) {
+    resultado = (num1 + num2);
+    document.getElementById('resultadocal').innerHTML = (num1 + ' + ' + num2 + ' = ' + resultado);
+    return resultado;
+}
+
+function subtracao(num1, num2) {
+    resultado = (num1 - num2);
+    document.getElementById('resultadocal').innerHTML = (num1 + ' - ' + num2 + ' = ' + resultado);
+}
+function multiplicacao(num1, num2) {
+    resultado = (num1 * num2);
+    document.getElementById('resultadocal').innerHTML = (num1 + ' * ' + num2 + ' = ' + resultado);
+}
+
+function divisao(num1, num2) {
+    if (num1 === 0 || num2 ===0 ) {
+        document.getElementById('resultadocal').innerHTML = ('Não Há Divisão Por 0');
+    } else {
+        resultado = (num1 / num2);
+        document.getElementById('resultadocal').innerHTML = (num1 + ' / ' + num2 + ' = ' + resultado);
+    }
+}
+
+
 function calculadora() {
     let num1 = parseInt(document.getElementById('num1').value);
     let operador = document.getElementById('op').value;
@@ -5,24 +30,16 @@ function calculadora() {
 
     switch (operador) {
         case ('+') :
-            resultado = (num1 + num2);
-            document.getElementById('resultadocal').innerHTML = (num1 + ' + ' + num2 + ' = ' + resultado);
+            soma(num1, num2);
             break;
         case ('-'):
-            resultado = (num1 - num2);
-            document.getElementById('resultadocal').innerHTML = (num1 + ' - ' + num2 + ' = ' + resultado);
+            subtracao(num1, num2);
             break;
         case ('*'):
-            resultado = (num1 * num2);
-            document.getElementById('resultadocal').innerHTML = (num1 + ' * ' + num2 + ' = ' + resultado);
+            multiplicacao(num1, num2);
             break;
         case ('/'):
-            if (num1 === 0 || num2 ===0 ) {
-                document.getElementById('resultadocal').innerHTML = ('Não Há Divisão Por 0');
-            } else {
-                resultado = (num1 / num2);
-                document.getElementById('resultadocal').innerHTML = (num1 + ' / ' + num2 + ' = ' + resultado);
-            }
+            divisao(num1, num2);
             break;
         default:
             document.getElementById('resultadocal').innerHTML = ('Nenhuma Conta Realizada!!!');
